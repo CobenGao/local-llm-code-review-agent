@@ -5,7 +5,7 @@ Companion code for the Towards AI article:
 
 > 🔒 Every byte of code reviewed by this agent stays inside your LAN.
 > No cloud API, no external network call — built for industries
-> (automotive, embedded, defense, fintech) where source code can never
+> (automotive, embedded, fintech) where source code can never
 > leave the building.
 
 ## What this is
