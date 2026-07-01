@@ -1,0 +1,20 @@
+stages:
+  - review
+
+variables:
+  # 关闭 Shell Executor 的自动 Profile 加载,规避 su - <user> 切换用户时
+  # 因 .bashrc / .bash_logout 中的阻塞或交互命令导致 "prepare environment: exit status 1" 崩溃
+  FF_DISABLE_AUTOMATIC_PROFILE_LOADING_ON_SHELL_EXECUTORS: "true"
+  # 当 GitLab 数据库中的 external_url 与服务器真实内网 IP 不一致时(常见于迁移/多网卡环境),
+  # 显式声明真实地址,替代系统自动注入的 CI_SERVER_URL
+  GITLAB_ACTUAL_URL: "http://<your-gitlab-internal-ip>:<port>"
+
+ai_agent_review:
+  stage: review
+  tags:
+    - ai-review          # 必须与目标 GitLab Runner 注册时的 tag 一致
+  only:
+    - merge_requests      # 仅在 Merge Request 创建/更新时触发
+  script:
+    - echo "================ 启动 Conda 环境下的 AI Agent 评审 ================"
+    - /home/ubuntu/miniconda3/envs/gitlab_ai/bin/python ci/ai_agent_review.py
