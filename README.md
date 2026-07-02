@@ -1,7 +1,12 @@
 # Local LLM Code Review Agent (GitLab CI + Ollama + LangGraph)
 
-Companion code for the Towards AI article:
-**"Zero-Trust AI Code Review: How We Built a 100% Local LLM Gatekeeper for Confidential Codebases"**
+> 🚀 **Featured on Towards AI**
+>
+> **Building a Zero-Trust AI Code Review Agent with GitLab, LangGraph, and Qwen3-Coder**
+>
+> https://medium.com/towards-artificial-intelligence/building-a-zero-trust-ai-code-review-agent-with-gitlab-langgraph-and-qwen3-coder-4dd17dbca145
+
+Companion code for the published Towards AI article.
 
 > 🔒 Every byte of code reviewed by this agent stays inside your LAN.
 > No cloud API, no external network call — built for industries
